@@ -1,11 +1,8 @@
-import React from 'react'
+import React from 'react';
+import ManageStory from './ManageStory';
 
 const page = () => {
-  return (
-    <div>
-      
-    </div>   
-  )
-}
+  return <ManageStory />;
+};
 
-export default page
+export default page;

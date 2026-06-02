@@ -1,5 +1,6 @@
 export const textSizes = {
   heading: {
+    hero: 32,
     pageTitle: 24,
     sectionTitle: 20,
     subSectionTitle: 18,

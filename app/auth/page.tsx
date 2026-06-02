@@ -1,11 +1,8 @@
-import React from 'react'
+import React from 'react';
+import CheckIn from './CheckIn';
 
 const page = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <CheckIn />;
+};
 
-export default page
+export default page;

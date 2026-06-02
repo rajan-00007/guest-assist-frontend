@@ -4,6 +4,7 @@ import { textSizes } from "@/components/styles/typography";
 
 /* Variants */
 export const variants = {
+  hero: { tag: "h1", size: textSizes.heading.hero },
   pageTitle: { tag: "h1", size: textSizes.heading.pageTitle },
   sectionTitle: { tag: "h2", size: textSizes.heading.sectionTitle },
   subSectionTitle: { tag: "h3", size: textSizes.heading.subSectionTitle },
