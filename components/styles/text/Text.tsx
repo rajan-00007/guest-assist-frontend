@@ -10,6 +10,7 @@ const Text = forwardRef<HTMLElement, TextProps>(({
   weight,
   align,
   lineHeight,
+  opacity,
   as,
   ...props
 }, ref) => {
@@ -26,6 +27,7 @@ const Text = forwardRef<HTMLElement, TextProps>(({
       weight={weight}
       align={align}
       lineHeight={lineHeight}
+      $opacity={opacity}
       {...props}
     >
       {children}

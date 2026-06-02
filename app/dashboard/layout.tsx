@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { User } from "lucide-react";
 import Text from "@/components/styles/text/Text";
 import BottomNav from "@/components/dashboard/BottomNav";
+import { FaUser } from "react-icons/fa";
+
 
 export const LayoutContainer = styled.div`
   max-width: 440px;
@@ -115,17 +117,17 @@ export default function DashboardLayout({
         <LeftBlock>
           <ResortAvatar />
           <TextStack>
-            <Text variant="bodySecondary" weight={700} color="#FFFFFF" style={{ fontStyle: "italic", letterSpacing: "0.2px" }}>
+            <Text variant="bodyPrimary" weight={600} style={{ fontStyle: "italic", letterSpacing: "0.2px" }}>
               TheGrandHorizon
             </Text>
-            <Text variant="caption" color="#B0C6F3" weight={400} style={{ fontSize: "11px", opacity: 0.9 }}>
+            <Text variant="caption" weight={400} opacity={80}>
               Executive Suite 402
             </Text>
           </TextStack>
         </LeftBlock>
         <RightBlock>
           <UserIconCircle onClick={() => alert("Profile Options Opened!")} aria-label="Profile Settings">
-            <User size={18} strokeWidth={2} />
+            <FaUser size={18} fill="white"/>
           </UserIconCircle>
         </RightBlock>
       </HeaderWrapper>

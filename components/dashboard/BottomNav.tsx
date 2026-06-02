@@ -63,7 +63,7 @@ export default function BottomNav() {
 
       {/* Floating Center Voice Button */}
       <VoiceButtonContainer>
-        <VoiceButton onClick={() => alert("Voice Assistant Activated! Speak your request...")} aria-label="Activate voice assistant">
+        <VoiceButton onClick={() => handleNavigation("/dashboard/help-assistant")} aria-label="Activate voice assistant">
           <AudioLines size={26} strokeWidth={2} />
         </VoiceButton>
       </VoiceButtonContainer>

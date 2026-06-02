@@ -22,6 +22,7 @@ interface BaseStyleProps {
   weight?: number | string;
   align?: string;
   lineHeight?: string;
+  $opacity?: number | string;
 }
 
 const baseStyle = css<BaseStyleProps>`
@@ -29,6 +30,13 @@ const baseStyle = css<BaseStyleProps>`
   font-weight: ${({ weight }) => weight ?? 400};
   text-align: ${({ align }) => align ?? "left"};
   line-height: ${({ lineHeight }) => lineHeight ?? "1.5"};
+  ${({ $opacity }) => {
+    if ($opacity === undefined || $opacity === null) return "";
+    const parsed = typeof $opacity === "number" ? $opacity : parseFloat($opacity);
+    if (isNaN(parsed)) return "";
+    const opacityVal = parsed > 1 ? parsed / 100 : parsed;
+    return css`opacity: ${opacityVal};`;
+  }}
 `;
 
 /* Styled Component  */
@@ -51,5 +59,6 @@ export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   weight?: number | string;
   align?: "left" | "center" | "right";
   lineHeight?: string;
+  opacity?: number | string;
   as?: React.ElementType;
 }
