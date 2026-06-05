@@ -303,23 +303,25 @@ export default function Controls() {
       <Drawer.Root open={isSpecialOpen} onOpenChange={setIsSpecialOpen}>
         <Drawer.Portal>
           <DrawerOverlay />
-          <DrawerContent >
+          <DrawerContent>
             <DrawerHandle />
             
-            <DrawerTextWrapper style={{ marginBottom: "8px" }}>
-              <Text variant="hero" weight={600} color="#FFFFFF" align="center">
-                Special Request
-              </Text>
-              <Text variant="bodyPrimary" weight={400} color="#8E8E93" align="center" lineHeight="1.4">
-                Need something extra? Let us know and we&apos;ll do our best to accommodate.
-              </Text>
-            </DrawerTextWrapper>
+            <div style={{ display: "flex", flexDirection: "column", overflowY: "auto", flex: 1, paddingBottom: "12px" }}>
+              <DrawerTextWrapper style={{ marginBottom: "8px" }}>
+                <Text variant="hero" weight={600} color="#FFFFFF" align="center">
+                  Special Request
+                </Text>
+                <Text variant="bodyPrimary" weight={400} color="#8E8E93" align="center" lineHeight="1.4">
+                  Need something extra? Let us know and we&apos;ll do our best to accommodate.
+                </Text>
+              </DrawerTextWrapper>
 
-            <StyledTextarea
-              placeholder="E.g. Extra pillows, sparkling water, late checkout request..."
-              value={specialText}
-              onChange={(e) => setSpecialText(e.target.value)}
-            />
+              <StyledTextarea
+                placeholder="E.g. Extra pillows, sparkling water, late checkout request..."
+                value={specialText}
+                onChange={(e) => setSpecialText(e.target.value)}
+              />
+            </div>
             
             <DrawerButtonWrapper>
               <StyledButton

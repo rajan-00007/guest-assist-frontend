@@ -143,6 +143,12 @@ export const DrawerContent = styled(Drawer.Content)`
   flex-direction: column;
   box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  max-height: 94dvh;
+
+  @media (max-height: 600px) {
+    padding-bottom: 24px;
+  }
 `;
 
 export const DrawerHandle = styled.div`
@@ -272,6 +278,12 @@ export const StyledTextarea = styled.textarea`
 
   &:focus {
     border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  @media (max-height: 600px) {
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 12px;
   }
 `;
 
