@@ -6,6 +6,8 @@ import { User } from "lucide-react";
 import Text from "@/components/styles/text/Text";
 import BottomNav from "@/components/dashboard/BottomNav";
 import { FaUser } from "react-icons/fa";
+import { usePathname } from "next/navigation";
+
 
 
 export const LayoutContainer = styled.div`
@@ -110,27 +112,32 @@ export default function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const isFoodPage = pathname?.startsWith("/dashboard/food");
+
   return (
     <LayoutContainer>
       {/* Global Transparent Header */}
-      <HeaderWrapper>
-        <LeftBlock>
-          <ResortAvatar />
-          <TextStack>
-            <Text variant="bodyPrimary" weight={600} style={{ fontStyle: "italic", letterSpacing: "0.2px" }}>
-              TheGrandHorizon
-            </Text>
-            <Text variant="caption" weight={400} opacity={80}>
-              Executive Suite 402
-            </Text>
-          </TextStack>
-        </LeftBlock>
-        <RightBlock>
-          <UserIconCircle onClick={() => alert("Profile Options Opened!")} aria-label="Profile Settings">
-            <FaUser size={18} fill="white"/>
-          </UserIconCircle>
-        </RightBlock>
-      </HeaderWrapper>
+      {!isFoodPage && (
+        <HeaderWrapper>
+          <LeftBlock>
+            <ResortAvatar />
+            <TextStack>
+              <Text variant="bodyPrimary" weight={600} style={{ fontStyle: "italic", letterSpacing: "0.2px" }}>
+                TheGrandHorizon
+              </Text>
+              <Text variant="caption" weight={400} opacity={80}>
+                Executive Suite 402
+              </Text>
+            </TextStack>
+          </LeftBlock>
+          <RightBlock>
+            <UserIconCircle onClick={() => alert("Profile Options Opened!")} aria-label="Profile Settings">
+              <FaUser size={18} fill="white"/>
+            </UserIconCircle>
+          </RightBlock>
+        </HeaderWrapper>
+      )}
 
       {/* Main Page Area */}
       <ScrollableContent>{children}</ScrollableContent>

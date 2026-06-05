@@ -4,6 +4,7 @@ export const textSizes = {
     pageTitle: 24,
     sectionTitle: 20,
     subSectionTitle: 18,
+    billAmount: 50,
   },
   body: { 
     primary: 16,

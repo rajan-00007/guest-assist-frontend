@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StyledComponentsRegistry from "@/lib/registry";
+import AuthGuard from "@/components/AuthGuard";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,8 +31,32 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <StyledComponentsRegistry>
+          <AuthGuard>
+            {children}
+          </AuthGuard>
+          <Toaster
+            position="top-right"
+            reverseOrder={false}
+            toastOptions={{
+              style: {
+                width: '80vw',
+                maxWidth: '350px',
+                marginTop: '24px',
+                background: '#1c1c1e',
+                color: '#ffffff',
+                borderRadius: '12px',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+                fontSize: '14px',
+                fontFamily: 'var(--font-geist-sans), sans-serif',
+              },
+            }}
+          />
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
 }
+
+

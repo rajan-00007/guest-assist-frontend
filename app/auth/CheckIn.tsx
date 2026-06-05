@@ -5,6 +5,9 @@ import { ChevronLeft, Check } from "lucide-react";
 import { colors } from "@/components/styles/colors";
 import Text from "@/components/styles/text/Text";
 import { StyledInput } from "@/components/styles/input/Input.styled";
+import { useRouter } from "next/navigation";
+import { useAuthStore } from "@/lib/store/useAuthStore";
+import { toast } from "react-hot-toast";
 import {
   PhoneLayout,
   HeaderCard,
@@ -28,6 +31,8 @@ import {
 type Step = "PHONE_ENTRY" | "OTP_VERIFY" | "SUCCESS";
 
 export default function CheckIn() {
+  const router = useRouter();
+  const { login } = useAuthStore();
   const [step, setStep] = useState<Step>("PHONE_ENTRY");
   
   // Step 1 States
@@ -64,6 +69,9 @@ export default function CheckIn() {
   const handleSendOtp = () => {
     if (isPhoneEntryValid) {
       setStep("OTP_VERIFY");
+      toast("OTP sent! Please enter the 4-digit code (use 1234).", {
+        icon: "💬",
+      });
     }
   };
 
@@ -141,7 +149,18 @@ export default function CheckIn() {
   // Handle Continue Verification
   const handleContinue = () => {
     if (isOtpValid) {
-      setStep("SUCCESS");
+      const enteredOtp = otp.join("");
+      if (enteredOtp === "1234") {
+        login(name, phone);
+        toast.success(`Welcome, ${name}! Logged in successfully.`, {
+          icon: "✅",
+        });
+        router.push("/story");
+      } else {
+        toast.error("Invalid OTP. Please enter 1234.", {
+          icon: "❌",
+        });
+      }
     }
   };
 

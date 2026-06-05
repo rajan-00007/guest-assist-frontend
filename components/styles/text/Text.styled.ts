@@ -8,6 +8,7 @@ export const variants = {
   pageTitle: { tag: "h1", size: textSizes.heading.pageTitle },
   sectionTitle: { tag: "h2", size: textSizes.heading.sectionTitle },
   subSectionTitle: { tag: "h3", size: textSizes.heading.subSectionTitle },
+  billAmount: { tag: "h1", size: textSizes.heading.billAmount },
   bodyPrimary: { tag: "p", size: textSizes.body.primary },
   bodySecondary: { tag: "p", size: textSizes.body.secondary },
   button: { tag: "span", size: textSizes.ui.primaryButton },

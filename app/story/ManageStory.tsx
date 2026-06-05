@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import Text from "@/components/styles/text/Text";
+import { useRouter } from "next/navigation";
 import {
   PhoneLayout,
   SlidesContainer,
@@ -25,6 +26,7 @@ const IMAGES = [
 const SLIDE_DURATION = 4500; // 4.5 seconds
 
 export default function ManageStory() {
+  const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -88,7 +90,7 @@ export default function ManageStory() {
         </DescriptionContainer>
 
         <BottomRow>
-          <CircleArrowButton onClick={handleNextSlide} aria-label="Next slide">
+          <CircleArrowButton onClick={() => router.push("/dashboard")} aria-label="Go to Dashboard">
             <ChevronRight size={26} strokeWidth={1.8} />
           </CircleArrowButton>
         </BottomRow>
