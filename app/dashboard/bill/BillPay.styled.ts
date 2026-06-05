@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const BillContainer = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
- 
   align-items: center;
   background-color: #000000;
   box-sizing: border-box;
   padding-top: 80px;
+  padding-bottom: 110px; /* Prevent bottom nav from covering content */
 `;
 
 export const DottedCard = styled.div`
@@ -49,6 +49,11 @@ export const ActionsCard = styled.div`
   padding: 20px 10px;
   box-sizing: border-box;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+  @media (max-width: 375px) {
+    height: 110px;
+    padding: 12px 6px;
+  }
 `;
 
 export const ActionItem = styled.div`
@@ -58,6 +63,10 @@ export const ActionItem = styled.div`
   gap: 12px;
   cursor: pointer;
   user-select: none;
+
+  @media (max-width: 375px) {
+    gap: 8px;
+  }
   
   &:hover {
     & > div {
@@ -79,6 +88,11 @@ export const ActionIconWrapper = styled.div<{ $active?: boolean }>`
   justify-content: center;
   color: #ffffff;
   transition: all 0.2s ease-in-out;
+
+  @media (max-width: 375px) {
+    width: 44px;
+    height: 44px;
+  }
 `;
 
 export const ActivityContainer = styled.div`

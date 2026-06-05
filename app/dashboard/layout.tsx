@@ -6,7 +6,7 @@ import { User } from "lucide-react";
 import Text from "@/components/styles/text/Text";
 import BottomNav from "@/components/dashboard/BottomNav";
 import { FaUser } from "react-icons/fa";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 
 
@@ -30,7 +30,7 @@ export const LayoutContainer = styled.div`
   }
 `;
 
-export const HeaderWrapper = styled.header`
+export const HeaderWrapper = styled.header<{ $hasBg?: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -42,7 +42,7 @@ export const HeaderWrapper = styled.header`
   justify-content: space-between;
   padding: 24px 20px 0 20px;
   box-sizing: border-box;
-  background: transparent;
+  background: ${({ $hasBg }) => ($hasBg ? "#000000" : "transparent")};
   pointer-events: none;
 `;
 
@@ -112,14 +112,16 @@ export default function DashboardLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const router = useRouter();
   const pathname = usePathname();
   const isFoodPage = pathname?.startsWith("/dashboard/food");
+  const isBillPage = pathname?.startsWith("/dashboard/bill");
 
   return (
     <LayoutContainer>
       {/* Global Transparent Header */}
       {!isFoodPage && (
-        <HeaderWrapper>
+        <HeaderWrapper $hasBg={isBillPage}>
           <LeftBlock>
             <ResortAvatar />
             <TextStack>
@@ -132,7 +134,7 @@ export default function DashboardLayout({
             </TextStack>
           </LeftBlock>
           <RightBlock>
-            <UserIconCircle onClick={() => alert("Profile Options Opened!")} aria-label="Profile Settings">
+            <UserIconCircle onClick={() => router.push("/demo-videos")} aria-label="Profile Settings">
               <FaUser size={18} fill="white"/>
             </UserIconCircle>
           </RightBlock>

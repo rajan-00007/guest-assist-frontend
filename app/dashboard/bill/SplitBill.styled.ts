@@ -5,7 +5,7 @@ export const SplitContainer = styled.div`
   max-width: 440px;
   display: flex;
   flex-direction: column;
-  padding: 30px 24px;
+  padding: 30px 24px 110px 24px;
   box-sizing: border-box;
   background-color: #000000;
 `;

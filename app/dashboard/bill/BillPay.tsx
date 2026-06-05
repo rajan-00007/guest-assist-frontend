@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Wallet, Percent, Download, ConciergeBell } from "lucide-react";
 import FoodMenuFilledIcon from "@iconify-react/boxicons/food-menu-filled";
 import Text from "@/components/styles/text/Text";
@@ -41,6 +41,21 @@ const BillPay = () => {
   
   // Set to true to display the success screen, false for default screen
   const [isPaid, setIsPaid] = useState(false);
+
+  useEffect(() => {
+    const scrollContainer = document.querySelector("main");
+    if (!scrollContainer) return;
+
+    if (isDownloadOpen || isIssueOpen) {
+      scrollContainer.style.overflowY = "hidden";
+    } else {
+      scrollContainer.style.overflowY = "auto";
+    }
+
+    return () => {
+      scrollContainer.style.overflowY = "auto";
+    };
+  }, [isDownloadOpen, isIssueOpen]);
 
   if (isPaid) {
     return <BillPaySuccess onClose={() => setIsPaid(false)} />;

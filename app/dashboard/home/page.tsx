@@ -120,7 +120,7 @@ export default function DashboardHome() {
       <Controls />
 
       {/* Room Guide Carousel Area */}
-      <RoomGuide />
+      {/* <RoomGuide /> */}
 
       {/* Track Request Bottom Sheet */}
       <TrackRequest open={isTrackOpen} onOpenChange={setIsTrackOpen} />

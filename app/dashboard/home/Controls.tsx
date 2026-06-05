@@ -137,7 +137,7 @@ export default function Controls() {
                 onClick={() => toggleControl(control.id)} 
                 aria-label={control.label}
               >
-                <IconComp size={36} strokeWidth={1.2} />
+                <IconComp size={36}  />
               </ControlCard>
               <ControlCardLabel $active={isAct} $isDnd={control.id === "dnd"}>
                 {control.label}

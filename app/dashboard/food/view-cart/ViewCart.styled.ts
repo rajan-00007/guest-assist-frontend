@@ -131,7 +131,8 @@ export const ItemTitle = styled.h3`
 `;
 
 export const ItemDescriptionWrapper = styled.div`
-  width: 150px;
+  max-width: 150px;
+  width: 100%;
   height: 26px;
   overflow: hidden;
   display: -webkit-box;
@@ -144,7 +145,8 @@ export const ItemDescriptionWrapper = styled.div`
 export const ItemBadgesRow = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 6px 8px;
   margin-top: 4px;
 `;
 
@@ -193,6 +195,10 @@ export const QuantityRow = styled.div`
   gap: 12px;
   box-sizing: border-box;
   margin-top: auto;
+
+  @media (max-width: 375px) {
+    gap: 8px;
+  }
 `;
 
 export const QtySquareBtn = styled.button`
@@ -208,6 +214,12 @@ export const QtySquareBtn = styled.button`
   border-radius: 4px;
   padding: 0;
   transition: background-color 0.2s, transform 0.1s;
+  flex-shrink: 0;
+
+  @media (max-width: 375px) {
+    width: 28px;
+    height: 28px;
+  }
 
   &:hover {
     background-color: #3F3F46;
@@ -230,8 +242,16 @@ export const QtyValue = styled.span`
 export const QuickActionsRow = styled.div`
   display: flex;
   gap: 12px;
-
   width: 100%;
+
+  @media (max-width: 375px) {
+    gap: 8px;
+
+    button {
+      padding: 0 8px !important;
+      font-size: 12px !important;
+    }
+  }
 `;
 
 export const PaymentSummaryBlock = styled.div`
