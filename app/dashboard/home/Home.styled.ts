@@ -6,7 +6,8 @@ export const HomeContainer = styled.div`
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  padding-top:140px;
+  padding-top: 140px;
+  padding-bottom: 120px;
   position: relative;
   background-color: #000000;
   box-sizing: border-box;

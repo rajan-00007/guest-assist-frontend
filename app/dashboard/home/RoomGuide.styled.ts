@@ -8,7 +8,7 @@ export const HorizontalScrollArea = styled.section`
   position: relative;
   z-index: 5;
   margin-top: 14px;
-  padding-bottom: 120px; /* Gives padding from bottom navigation bar on scroll */
+  padding-bottom: 0px; /* Padding is handled by the parent HomeContainer */
 `;
 
 export const ScrollTitle = styled.h2`
