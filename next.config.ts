@@ -1,4 +1,8 @@
 import type { NextConfig } from "next";
+// @ts-ignore
+import withPWAInit from "next-pwa";
+
+const isDev = process.env.NODE_ENV === "development";
 
 const nextConfig: NextConfig = {
   compiler: {
@@ -6,4 +10,12 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+const finalConfig = isDev
+  ? nextConfig
+  : withPWAInit({
+      dest: "public",
+      register: true,
+      skipWaiting: true,
+    })(nextConfig);
+
+export default finalConfig;

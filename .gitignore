@@ -13,6 +13,8 @@ temp.ts
 # testing
 /coverage
 
+
+sw.js
 # next.js
 /.next/
 /out/
