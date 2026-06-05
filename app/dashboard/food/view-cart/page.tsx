@@ -1,11 +1,8 @@
-import React from 'react'
+"use client";
 
-const page = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+import React from "react";
+import ViewCart from "./ViewCart";
+
+export default function CartPage() {
+  return <ViewCart />;
 }
-
-export default page

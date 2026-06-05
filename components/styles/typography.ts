@@ -9,6 +9,9 @@ export const textSizes = {
   body: { 
     primary: 16,
     secondary: 14,
+    small: 10,
+    tiny: 9,
+    summaryHeader: 15,
   },
   ui: {
     primaryButton: 18,

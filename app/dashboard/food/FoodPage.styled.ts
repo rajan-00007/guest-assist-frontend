@@ -104,3 +104,53 @@ export const SectionTitleText = styled.h2`
   margin: 0;
   letter-spacing: 0.1px;
 `;
+
+export const FloatingCartBtn = styled.button`
+  position: fixed;
+  bottom: 96px; 
+
+  right: 20px;
+  background-color: #0052F7;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  gap: 20px;
+  cursor: pointer;
+  z-index: 200;
+  box-shadow: 0 8px 24px rgba(0, 82, 247, 0.3);
+  transition: transform 0.2s, background-color 0.2s;
+
+  &:hover {
+    background-color: #0046D5;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+`;
+
+export const FloatingCartTextCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  line-height: 1.1;
+`;
+
+export const FloatingCartArrowBox = styled.div`
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+`;
+
