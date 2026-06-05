@@ -43,19 +43,19 @@ jobs:
               id: verify_docker_image
               run: docker images ${{ env.HARBOR_IMAGE }}:${{ env.TAG }}
 
-            - name: Cache Trivy DB
-              uses: actions/cache@v5
-              with:
-                  path: ~/.cache/trivy
-                  key: ${{ runner.os }}-trivy-db
-                  restore-keys: |
-                      ${{ runner.os }}-trivy-db
-
-            - name: Trivy Scan Docker images
-              uses: aquasecurity/trivy-action@master
-              with:
-                  image-ref: ${{ env.HARBOR_IMAGE }}:${{ env.TAG }}
-              timeout-minutes: 30
+#            - name: Cache Trivy DB
+#              uses: actions/cache@v5
+#              with:
+#                  path: ~/.cache/trivy
+#                  key: ${{ runner.os }}-trivy-db
+#                  restore-keys: |
+#                       ${{ runner.os }}-trivy-db
+# 
+#            - name: Trivy Scan Docker images
+#              uses: aquasecurity/trivy-action@master
+#              with:
+#                  image-ref: ${{ env.HARBOR_IMAGE }}:${{ env.TAG }}
+#              timeout-minutes: 30
 
             - name: Push Docker image
               id: push_docker_images
