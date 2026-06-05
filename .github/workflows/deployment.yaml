@@ -73,54 +73,7 @@ jobs:
 
             - name: Update Kubernetes manifests
               run: |
-                  cd healthligence-infra
-                  mkdir -p guest-assist/guest-assist-frontend
-                  cd guest-assist/guest-assist-frontend
-
-                  # Create manifest if it doesn't exist yet
-                  if [ ! -f guest-assist-frontend.yaml ]; then
-                    cat << 'EOF' > guest-assist-frontend.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: guestassist-frontend
-  namespace: guestassist
-  labels:
-    app: guestassist-frontend
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: guestassist-frontend
-  template:
-    metadata:
-      labels:
-        app: guestassist-frontend
-    spec:
-      containers:
-        - name: guestassistfrontend
-          image: registry.heal.infoviz.co/guestassist/guestassistfrontend:latest
-          ports:
-            - containerPort: 3000
-          imagePullPolicy: IfNotPresent
-      imagePullSecrets:
-        - name: herbor-registry-credential
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: guestassist-frontend
-  namespace: guestassist
-spec:
-  type: ClusterIP
-  ports:
-    - name: http
-      port: 3000
-      targetPort: 3000
-  selector:
-    app: guestassist-frontend
-EOF
-                  fi
+                  cd healthligence-infra/guest-assist/guest-assist-frontend
 
                   # Configure Git
                   git config --global user.email "${{ secrets.GITOPS_EMAIL }}"
