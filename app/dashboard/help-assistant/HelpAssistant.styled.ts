@@ -154,14 +154,14 @@ export const BottomInputArea = styled.div`
 
 export const CustomInputBar = styled.div`
   width: 100%;
-  height: 52px;
+  height: 62px;
   background-color: #18181b;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 26px;
+  border-radius: 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 6px 0 20px;
+  padding: 0 12px 0 20px;
   box-sizing: border-box;
 `;
 
@@ -174,9 +174,6 @@ export const CustomInput = styled.input`
   color: #FFFFFF;
   font-family: inherit;
 
-  &::placeholder {
-    color: #94a3b8;
-  }
 `;
 
 export const ActionIconButton = styled.button<{ $white?: boolean }>`

@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { GiWashingMachine } from "react-icons/gi";
 import Text from "@/components/styles/text/Text";
 import Controls from "./Controls";
+import TrackRequest from "@/components/home/track-request/TrackRequest";
+import RoomGuide from "./RoomGuide";
 import {
   HomeContainer,
   SlideshowWrapper,
@@ -15,7 +17,6 @@ import {
   Dash,
   StatusTrackCard,
   CardLeftBlock,
-  CardIconWrapper,
   CardTextStack,
   TrackButton
 } from "./Home.styled";
@@ -36,6 +37,7 @@ const SLIDE_DURATION = 4500; // 4.5 seconds
 
 export default function DashboardHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isTrackOpen, setIsTrackOpen] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const startTimer = () => {
@@ -96,28 +98,32 @@ export default function DashboardHome() {
       </HeroPromoArea>
 
       {/* Status Cleaning/Tracking Card */}
-      <StatusTrackCard >
+      <StatusTrackCard>
         <CardLeftBlock>
-           
-            <GiWashingMachine size={40} />
+          <GiWashingMachine size={40} />
           
           <CardTextStack>
             <Text variant="bodySecondary" weight={700} color="#000000">
-              Room clea ning
+              Room cleaning
             </Text>
             <Text variant="caption" color="rgba(0, 0, 0, 0.6)" weight={500} style={{ fontSize: "11px" }}>
               Scheduled • 2 PM
             </Text>
           </CardTextStack>
         </CardLeftBlock>
-        <TrackButton onClick={() => alert("Cleaning status: Housekeeper is preparing supply cart.")}>
+        <TrackButton onClick={() => setIsTrackOpen(true)}>
           Track
         </TrackButton>
       </StatusTrackCard>
 
-      {/* Grid Controls  Area */}
+      {/* Grid Controls Area */}
       <Controls />
+
+      {/* Room Guide Carousel Area */}
+      <RoomGuide />
+
+      {/* Track Request Bottom Sheet */}
+      <TrackRequest open={isTrackOpen} onOpenChange={setIsTrackOpen} />
     </HomeContainer>
   );
 }
-  

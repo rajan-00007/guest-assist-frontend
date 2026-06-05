@@ -75,7 +75,7 @@ export default function HelpAssistant() {
             <CustomInputBar>
               <CustomInput
                 type="text"
-                placeholder="AC NOT WORKING"
+                placeholder="Ask me anyhting"
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleActionClick()}

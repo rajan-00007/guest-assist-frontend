@@ -13,6 +13,9 @@ export const NavWrapper = styled.div`
   justify-content: space-between;
   padding: 0 16px;
   box-sizing: border-box;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 30px;
 
   @media (max-width: 440px) {
     bottom: 12px;
@@ -55,7 +58,7 @@ export const NavLinkItem = styled.a<NavLinkItemProps>`
   align-items: center;
   justify-content: center;
   gap: 4px;
-  color: ${({ $active }) => ($active ? colors.base.white : "#94A3B8")};
+  color: ${({ $active }) => ($active ? "#FFFFFF" : "rgba(255, 255, 255, 0.45)")};
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -64,14 +67,14 @@ export const NavLinkItem = styled.a<NavLinkItemProps>`
   border-radius: 12px;
 
   svg {
-    color: ${({ $active }) => ($active ? colors.base.white : "#94A3B8")};
+    color: ${({ $active }) => ($active ? "#FFFFFF" : "rgba(255, 255, 255, 0.45)")};
     transition: all 0.2s ease-in-out;
   }
 
   &:hover {
-    color: ${colors.base.white};
+    color: #FFFFFF;
     svg {
-      color: ${colors.base.white};
+      color: #FFFFFF;
       transform: translateY(-1px);
     }
   }
@@ -83,34 +86,31 @@ export const NavLinkItem = styled.a<NavLinkItemProps>`
 
 export const VoiceButtonContainer = styled.div`
   position: absolute;
-  top: -24px;
+  top: -21px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 `;
 
 export const VoiceButton = styled.button`
-  width: 72px;
-  height: 72px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   background: linear-gradient(135deg, ${colors.primary[1]} 0%, #003AAF 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: ${colors.base.white};
-  border: 4px solid #000000;
-  box-shadow: 0 4px 16px rgba(0, 82, 247, 0.45);
+  border: 5px solid #000000;
   cursor: pointer;
   outline: none;
   transition: all 0.25s ease-in-out;
 
   &:hover {
     transform: scale(1.06);
-    box-shadow: 0 6px 22px rgba(0, 82, 247, 0.55);
   }
 
   &:active {
     transform: scale(0.94);
-    box-shadow: 0 2px 8px rgba(0, 82, 247, 0.3);
   }
 `;
