@@ -73,18 +73,18 @@ jobs:
 
             - name: Update Kubernetes manifests
               run: |
-                  cd healthligence-infra/guestassist/guestassist-frontend
+                  cd healthligence-infra/guestassist/guest-assist-frontend
 
                   # Configure Git
                   git config --global user.email "${{ secrets.GITOPS_EMAIL }}"
                   git config --global user.name "${{ secrets.GITOPS_USERNAME }}"
 
                   # Update only the image tag in the Deployment
-                  sed -i "s+registry.heal.infoviz.co.*/guestassistfrontend:.*+${HARBOR_IMAGE}:${TAG}+g" guestassist-frontend.yaml
+                  sed -i "s+registry.heal.infoviz.co.*/guestassistfrontend:.*+${HARBOR_IMAGE}:${TAG}+g" guest-assist-frontend.yaml
 
                   # Commit and push changes
-                  git add guestassist-frontend.yaml
-                  git commit -m "chore: Update guestassist-frontend image tag to ${TAG}"
+                  git add guest-assist-frontend.yaml
+                  git commit -m "chore: Update guest-assist-frontend image tag to ${TAG}"
                   git push origin main
               env:
                   TAG: ${{ env.TAG }}
