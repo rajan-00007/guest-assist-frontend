@@ -300,7 +300,7 @@ export default function Controls() {
       </Drawer.Root>
 
       {/* Special Request Bottom Sheet */}
-      <Drawer.Root open={isSpecialOpen} onOpenChange={setIsSpecialOpen}>
+      <Drawer.Root open={isSpecialOpen} onOpenChange={setIsSpecialOpen} repositionInputs={false}>
         <Drawer.Portal>
           <DrawerOverlay />
           <DrawerContent>
